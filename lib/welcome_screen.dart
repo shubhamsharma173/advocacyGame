@@ -10,7 +10,8 @@ class WelcomeScreen extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/bg_drums.jpg'), // Replace this with your desired background image path
+                image: AssetImage('assets/images/bg_drums.jpg'),
+                // Replace this with your desired background image path
                 fit: BoxFit.cover,
               ),
             ),
@@ -23,7 +24,13 @@ class WelcomeScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => RegisterScreen()),
                 );
               },
-              child: Text('Register'),
+              child: Text(
+                'NEXT',
+                style: TextStyle(
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ),
         ],
