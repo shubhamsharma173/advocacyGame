@@ -94,11 +94,8 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid> {
         MediaQuery.of(context).padding.bottom;
     final cellSize =
         (screenWidth - padding * (crossAxisCount + 1)) / crossAxisCount / 1.5;
-    final aspectRatio =
-        (cellSize * crossAxisCount + padding * (crossAxisCount + 1)) /
-            (cellSize * (cellCount / crossAxisCount).ceil() +
-                padding * ((cellCount / crossAxisCount).ceil() + 1));
-    final iconSize = cellSize / 2; // set icon size to half of the cell size
+    final aspectRatio = 1.0;
+    final iconSize = cellSize / 3; // set icon size to half of the cell size
     final gridView = GridView.builder(
       physics: NeverScrollableScrollPhysics(),
       itemCount: cellCount,
@@ -137,9 +134,6 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid> {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Flashing Icons Grid'),
-      ),
       body: Stack(
         children: [
           Container(
@@ -151,7 +145,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: padding, bottom: padding), // Added padding to top and bottom only
+            padding: EdgeInsets.only(top: 100, bottom: 0), // Added padding to top and bottom only
             child: Center(
               child: AspectRatio(
                 aspectRatio: aspectRatio,

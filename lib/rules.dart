@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'register_screen.dart';
+import 'grid.dart';
 import 'dart:math';
 
-class WelcomeScreen extends StatelessWidget {
+class RulesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +11,7 @@ class WelcomeScreen extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/welcome_bg.png'),
+                image: AssetImage('assets/images/rules_bg.png'),
                 // Replace this with your desired background image path
                 fit: BoxFit.cover,
               ),
@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
+                  MaterialPageRoute(builder: (context) => FlashingIconsGrid()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -33,7 +33,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
               child: Container(
                 padding: EdgeInsets.only(top: 3),
-                width: 80,
+                width: 150,
                 height: 35,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -59,20 +59,19 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    'NEXT',
+                    'START THE GAME',
                     style: TextStyle(
                       color: Colors.black,
                       fontFamily: 'CustomFont',
                       fontWeight: FontWeight.w800,
                       fontSize: 14,
-                      letterSpacing: 1,
                     ),
                   ),
                 ),
               ),
             ),
-            left: 125.0, // set the left position
-            top: 240.0, // set the top position
+            left: 320.0, // set the left position
+            top: 310.0, // set the top position
           ),
         ],
       ),
