@@ -21,20 +21,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(
-              Icons.landscape,
-              size: 100.0,
-            ),
-            Text(
-              'Landscape App',
-              style: TextStyle(fontSize: 24),
-            ),
-          ],
-        ),
+      backgroundColor: Colors.white,
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(
+            'assets/images/splashScreen.png', // Replace with your own image path
+            fit: BoxFit.cover,
+          ),
+        ],
       ),
     );
   }

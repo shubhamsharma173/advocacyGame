@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'grid.dart';
+import 'grid1.dart';
 import 'dart:math';
 
 class RulesScreen extends StatelessWidget {
@@ -22,7 +22,7 @@ class RulesScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FlashingIconsGrid()),
+                  MaterialPageRoute(builder: (context) => FlashingIconsGrid1()),
                 );
               },
               style: ElevatedButton.styleFrom(

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'register_screen.dart';
+import 'brand.dart';
 import 'dart:math';
 
-class WelcomeScreen extends StatelessWidget {
+class PromoterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
         children: [
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/welcome_bg.png'),
+                image: AssetImage('assets/images/promoter_bg.png'),
                 // Replace this with your desired background image path
                 fit: BoxFit.cover,
               ),
@@ -22,7 +23,7 @@ class WelcomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
+                  MaterialPageRoute(builder: (context) => BrandScreen()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -65,13 +66,14 @@ class WelcomeScreen extends StatelessWidget {
                       fontFamily: 'CustomFont',
                       fontWeight: FontWeight.w800,
                       fontSize: 14,
+                      letterSpacing: 1,
                     ),
                   ),
                 ),
               ),
             ),
-            left: 125.0, // set the left position
-            top: 240.0, // set the top position
+            left: (screenWidth / 2) - 40, // 40 is half of the button width
+            top: 220.0, // set the top position
           ),
         ],
       ),
