@@ -5,6 +5,8 @@ import 'dart:math';
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -70,7 +72,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            left: 125.0, // set the left position
+            left: (screenWidth / 5) - 40,
             top: 240.0, // set the top position
           ),
         ],

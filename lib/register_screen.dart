@@ -19,158 +19,168 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/bg_plain.jpg'),
-            fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        // Dismiss the keyboard when tapping outside the input fields
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        // Prevent resizing when the keyboard is displayed
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/bg_plain.jpg'),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            maxHeight = constraints.maxHeight;
-            maxWidth = constraints.maxWidth;
+          child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              maxHeight = constraints.maxHeight;
+              maxWidth = constraints.maxWidth;
 
-            return Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: 0.1 * maxHeight, horizontal: 0.1 * maxWidth),
-              child: Center(
-                child: SizedBox(
-                  width: 0.4 * maxWidth,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: ConstrainedBox(
-                          constraints:
-                              BoxConstraints(maxHeight: 0.6 * maxHeight),
-                          child: SingleChildScrollView(
-                            child: Form(
-                              key: _formKey,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(height: 0.08 * maxHeight),
-                                  _buildFormField(
-                                    'NAME',
-                                    'Please enter your name',
-                                    TextInputType.name,
-                                    (value) {
-                                      setState(() {
-                                        name = value!;
-                                        _updateButtonEnabledStatus();
-                                      });
-                                    },
-                                  ),
-                                  _buildFormField2(
-                                    'MOBILE NUMBER',
-                                    'Please enter your mobile number',
-                                    TextInputType.phone,
-                                    (value) {
-                                      setState(() {
-                                        mobile = value!;
-                                        _updateButtonEnabledStatus();
-                                      });
-                                    },
-                                    10,
-                                  ),
-                                  _buildFormField2(
-                                    'PINCODE',
-                                    'Please enter your pincode',
-                                    TextInputType.number,
-                                    (value) {
-                                      setState(() {
-                                        pincode = value!;
-                                        _updateButtonEnabledStatus();
-                                      });
-                                    },
-                                    6,
-                                  ),
-                                  SizedBox(height: 0.03 * maxHeight),
-                                  SizedBox(
-                                    height: 0.08 * maxHeight,
-                                    width: 0.12 * maxWidth,
-                                    child: ElevatedButton(
-                                      onPressed: _isButtonEnabled
-                                          ? () {
-                                              _formKey.currentState!.save();
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        RulesScreen()),
-                                              );
-                                            }
-                                          : null, // disable the button
-                                      style: ElevatedButton.styleFrom(
-                                        padding: EdgeInsets.all(0),
-                                        primary: Colors.transparent,
-                                        onPrimary: Colors.white,
-                                        elevation: 5,
-                                      ),
-                                      child: Opacity(
-                                        opacity: _isButtonEnabled ? 1 : 0.5,
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                    vertical: 0.1 * maxHeight, horizontal: 0.1 * maxWidth),
+                child: Center(
+                  child: SizedBox(
+                    width: 0.4 * maxWidth,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: ConstrainedBox(
+                            constraints:
+                                BoxConstraints(maxHeight: 0.6 * maxHeight),
+                            child: SingleChildScrollView(
+                              child: Form(
+                                key: _formKey,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(height: 0.08 * maxHeight),
+                                    _buildFormField(
+                                      'NAME',
+                                      'Please enter your name',
+                                      TextInputType.name,
+                                      (value) {
+                                        setState(() {
+                                          name = value!;
+                                          _updateButtonEnabledStatus();
+                                        });
+                                      },
+                                    ),
+                                    _buildFormField2(
+                                      'MOBILE NUMBER',
+                                      'Please enter your mobile number',
+                                      TextInputType.number,
+                                      (value) {
+                                        setState(() {
+                                          mobile = value!;
+                                          _updateButtonEnabledStatus();
+                                        });
+                                      },
+                                      10,
+                                    ),
+                                    _buildFormField2(
+                                      'PINCODE',
+                                      'Please enter your pincode',
+                                      TextInputType.number,
+                                      (value) {
+                                        setState(() {
+                                          pincode = value!;
+                                          _updateButtonEnabledStatus();
+                                        });
+                                      },
+                                      6,
+                                    ),
+                                    SizedBox(height: 0.03 * maxHeight),
+                                    SizedBox(
+                                      height: 0.08 * maxHeight,
+                                      width: 0.12 * maxWidth,
+                                      child: ElevatedButton(
+                                        onPressed: _isButtonEnabled
+                                            ? () {
+                                                _formKey.currentState!.save();
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          RulesScreen()),
+                                                );
+                                              }
+                                            : null, // disable the button
+                                        style: ElevatedButton.styleFrom(
+                                          padding: EdgeInsets.all(0),
+                                          primary: Colors.transparent,
+                                          onPrimary: Colors.white,
+                                          elevation: 5,
+                                        ),
+                                        child: Opacity(
+                                          opacity: _isButtonEnabled ? 1 : 0.5,
 
-                                        // reduce the opacity when disabled
-                                        child: Container(
-                                          padding: EdgeInsets.only(top: 3),
-                                          width: 0.12 * maxWidth,
-                                          height: 0.08 * maxHeight,
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              colors: [
-                                                Color.fromRGBO(134, 99, 66, 1),
-                                                Color.fromRGBO(
-                                                    247, 222, 132, 1),
-                                                Color.fromRGBO(
-                                                    247, 222, 132, 1),
-                                                Color.fromRGBO(
-                                                    247, 222, 132, 1),
-                                                Color.fromRGBO(134, 99, 66, 1),
-                                              ],
-                                              stops: [
-                                                0.01,
-                                                0.2,
-                                                0.5,
-                                                0.7,
-                                                0.95,
-                                              ],
-                                              begin: Alignment.topLeft,
-                                              end: Alignment.bottomRight,
-                                              transform: GradientRotation(
-                                                  170 * (pi / 180)),
+                                          // reduce the opacity when disabled
+                                          child: Container(
+                                            padding: EdgeInsets.only(top: 3),
+                                            width: 0.12 * maxWidth,
+                                            height: 0.08 * maxHeight,
+                                            decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                colors: [
+                                                  Color.fromRGBO(
+                                                      134, 99, 66, 1),
+                                                  Color.fromRGBO(
+                                                      247, 222, 132, 1),
+                                                  Color.fromRGBO(
+                                                      247, 222, 132, 1),
+                                                  Color.fromRGBO(
+                                                      247, 222, 132, 1),
+                                                  Color.fromRGBO(
+                                                      134, 99, 66, 1),
+                                                ],
+                                                stops: [
+                                                  0.01,
+                                                  0.2,
+                                                  0.5,
+                                                  0.7,
+                                                  0.95,
+                                                ],
+                                                begin: Alignment.topLeft,
+                                                end: Alignment.bottomRight,
+                                                transform: GradientRotation(
+                                                    170 * (pi / 180)),
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(2),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(2),
-                                          ),
-                                          child: Center(
-                                            child: Text(
-                                              'SUBMIT',
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontFamily: 'CustomFont',
-                                                fontWeight: FontWeight.w800,
-                                                fontSize: 14,
+                                            child: Center(
+                                              child: Text(
+                                                'SUBMIT',
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontFamily: 'CustomFont',
+                                                  fontWeight: FontWeight.w800,
+                                                  fontSize: 14,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

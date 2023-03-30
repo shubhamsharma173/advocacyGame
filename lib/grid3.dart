@@ -199,6 +199,15 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid3> {
               'assets/images/topBar3.png',
             ),
           ),
+          // Positioned(
+          //   child: Image.asset(
+          //     'assets/images/grid.png',
+          //     width: 655,
+          //     height: 655,
+          //   ),
+          //   left: (screenWidth / 2) - 327.5,
+          //   top: (screenHeight / 2) - 289,
+          // ),
           Positioned(
             child: Column(
               children: [
@@ -260,7 +269,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid3> {
             top: 150,
           ),
           Padding(
-            padding: EdgeInsets.only(top: 80, bottom: 0),
+            padding: EdgeInsets.only(top: 100, bottom: 0),
             // Added padding to top and bottom only
             child: Center(
               child: AspectRatio(

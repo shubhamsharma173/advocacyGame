@@ -5,6 +5,8 @@ import 'dart:math';
 class RulesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: [
@@ -70,8 +72,8 @@ class RulesScreen extends StatelessWidget {
                 ),
               ),
             ),
-            left: 320.0, // set the left position
-            top: 310.0, // set the top position
+            left: (screenWidth / 2) - 75,
+            bottom: (screenHeight / 5) - 17.5,
           ),
         ],
       ),
