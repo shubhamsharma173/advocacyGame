@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'rules.dart';
 import 'dart:math';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -16,6 +18,55 @@ class _RegisterScreenState extends State<RegisterScreen> {
   double maxHeight = 0.0;
   double maxWidth = 0.0;
   bool _isButtonEnabled = false;
+
+  Future<void> _submitData() async {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    _formKey.currentState!.save();
+
+    final String apiUrl = 'https://advocacygame.herokuapp.com/register';
+    final Map<String, dynamic> requestData = {
+      'name': name,
+      'mobile': mobile,
+      'pincode': pincode,
+    };
+
+    try {
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: json.encode(requestData),
+      );
+
+      if (response.statusCode == 200) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => RulesScreen()),
+        );
+        print('Data sent successfully');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error: ${response.statusCode}'),
+            duration: Duration(seconds: 5),
+          ),
+        );
+        print('Error: ${response.statusCode}');
+      }
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error: $error'),
+          duration: Duration(seconds: 5),
+        ),
+      );
+      print('Error: $error');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,13 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       child: ElevatedButton(
                                         onPressed: _isButtonEnabled
                                             ? () {
-                                                _formKey.currentState!.save();
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          RulesScreen()),
-                                                );
+                                                _submitData();
                                               }
                                             : null, // disable the button
                                         style: ElevatedButton.styleFrom(

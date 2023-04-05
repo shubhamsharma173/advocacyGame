@@ -47,7 +47,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid2> {
   }
 
   void _startRandomizeTimer() {
-    _randomizeTimer = Timer.periodic(Duration(milliseconds: 1500), (Timer t) {
+    _randomizeTimer = Timer.periodic(Duration(milliseconds: 300), (Timer t) {
       if (!_isOverlayVisible) {
         setState(() {
           cellImages = _randomizeImages();
@@ -61,7 +61,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid2> {
   }
 
   void _startShowOverlayTimer() {
-    _showOverlayTimer = Timer(Duration(seconds: 30), () {
+    _showOverlayTimer = Timer(Duration(seconds: 15), () {
       if (!_isOverlayVisible) {
         setState(() {
           _timeImage = 'assets/images/0.png';
@@ -76,19 +76,19 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid2> {
   }
 
   void _startUpdateTimeTimer() {
-    _updateTimeTimer = Timer.periodic(Duration(seconds: 6), (Timer t) {
+    _updateTimeTimer = Timer.periodic(Duration(seconds: 3), (Timer t) {
       setState(() {
         if (!_isOverlayVisible) {
-          _secondsElapsed += 6;
-          if (_secondsElapsed == 6)
+          _secondsElapsed += 3;
+          if (_secondsElapsed == 3)
             _timeImage = 'assets/images/24.png';
-          else if (_secondsElapsed == 12)
+          else if (_secondsElapsed == 6)
             _timeImage = 'assets/images/18.png';
-          else if (_secondsElapsed == 18)
+          else if (_secondsElapsed == 9)
             _timeImage = 'assets/images/12.png';
-          else if (_secondsElapsed == 24)
+          else if (_secondsElapsed == 12)
             _timeImage = 'assets/images/6.png';
-          else if (_secondsElapsed == 30) _timeImage = 'assets/images/0.png';
+          else if (_secondsElapsed == 15) _timeImage = 'assets/images/0.png';
         }
       });
     });
@@ -174,9 +174,9 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid2> {
               child: image == null
                   ? Container(color: Colors.transparent)
                   : Image.asset(
-                image,
-                height: imageHeight,
-              ),
+                      image,
+                      height: imageHeight,
+                    ),
             ),
           ),
         );
