@@ -47,7 +47,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid2> {
   }
 
   void _startRandomizeTimer() {
-    _randomizeTimer = Timer.periodic(Duration(milliseconds: 300), (Timer t) {
+    _randomizeTimer = Timer.periodic(Duration(milliseconds: 500), (Timer t) {
       if (!_isOverlayVisible) {
         setState(() {
           cellImages = _randomizeImages();

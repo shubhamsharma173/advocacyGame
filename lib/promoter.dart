@@ -6,6 +6,7 @@ class PromoterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: [
@@ -72,8 +73,8 @@ class PromoterScreen extends StatelessWidget {
                 ),
               ),
             ),
-            left: (screenWidth / 2) - 40, // 40 is half of the button width
-            top: 220.0, // set the top position
+            left: (screenWidth / 2) - 75,
+            bottom: (screenHeight / 5) - 17.5,
           ),
         ],
       ),
