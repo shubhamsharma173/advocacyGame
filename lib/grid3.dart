@@ -188,7 +188,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid3> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/bg_plain.jpg'),
+                image: AssetImage('assets/images/bg_plain.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -310,21 +310,19 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid3> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Crafted Using \nSolera Process',
+                                  'Crafted Using \nSelect Solera Process',
                                   style: TextStyle(
                                     color: Color.fromRGBO(247, 222, 132, 1),
-                                    fontSize: 30,
+                                    fontSize: 27.5,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 8),
-                                  child: Text(
-                                    'A unique distillation process for a superlative product \nexperience.',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 9,
-                                    ),
+                                Text(
+                                  'A unique distillation process for a superlative product experience.',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 9,
                                   ),
                                 ),
                               ]),

@@ -188,7 +188,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid1> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/bg_plain.jpg'),
+                image: AssetImage('assets/images/bg_plain.png'),
                 fit: BoxFit.cover,
               ),
             ),

@@ -188,7 +188,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid2> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/bg_plain.jpg'),
+                image: AssetImage('assets/images/bg_plain.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -307,7 +307,7 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid2> {
                           ),
                           SizedBox(width: 10),
                           Text(
-                            'Matured in \nAmerican Oak \nBarrels',
+                            'Matured in \nSelect American \nOak Barrels',
                             style: TextStyle(
                               color: Color.fromRGBO(247, 222, 132, 1),
                               fontSize: 30,
