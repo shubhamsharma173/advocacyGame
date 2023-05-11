@@ -317,14 +317,6 @@ class _FlashingIconsGridState extends State<FlashingIconsGrid3> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                Text(
-                                  'A unique distillation process for a superlative product experience.',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 9,
-                                  ),
-                                ),
                               ]),
                         ],
                       ),

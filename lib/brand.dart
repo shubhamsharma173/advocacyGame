@@ -16,7 +16,7 @@ class BrandScreen extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/brand_bg.png'),
+                  image: AssetImage('assets/images/brand_bg.jpg'),
                   // Replace this with your desired background image path
                   fit: BoxFit.cover,
                 ),
